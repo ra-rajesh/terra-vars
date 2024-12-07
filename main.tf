@@ -29,7 +29,7 @@ resource "aws_vpc" "Vpc_Terraform" {
   enable_dns_support   = var.vpc_enable_dns_support
 
   tags = {
-    Name = var.vpc_tags
+    Name = var.vpc_name
   }
 }
 
@@ -41,7 +41,7 @@ resource "aws_subnet" "Vpc_Pub_Subnet_Terraform" {
   #map_public_ip_on_launch = var.map_public_ip_on_launch
 
   tags = {
-    Name = "var.vpc_pub1_sn_tag"
+    Name = var.vpc_pub1_sn_name
   }
 }
 
@@ -50,7 +50,7 @@ resource "aws_internet_gateway" "IGW_Terraform" {
   vpc_id = aws_vpc.Vpc_Terraform.id
 
   tags = {
-    Name = var.vpc_igw_tag
+    Name = var.vpc_igw_name
   }
 }
 
@@ -68,7 +68,7 @@ resource "aws_route_table" "Routetable_Terraform" {
   #   }
 
   tags = {
-    Name = "var.Pub1_routetable_tags"
+    Name = var.Pub1_routetable_name
   }
 }
 
@@ -117,7 +117,7 @@ resource "aws_security_group" "Sg_Terraform" {
   }
 
   tags = {
-    Name = var.Sg_tag_name
+    Name = var.Sg_name
   }
 }
 
@@ -132,7 +132,7 @@ resource "aws_instance" "Terraform_Pub" {
   availability_zone           = var.ec2_availability_zone
 
   tags = {
-    Name        = var.ec2_name_tag
+    Name        = var.ec2_name
     Owner       = "Rajesh"
     Environment = "Development"
   }
